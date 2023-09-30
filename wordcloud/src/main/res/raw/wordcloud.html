@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link href="style.css">
+    </head>
+    <body>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+                Word clouds are used to visualize how often each word in a text occurs.
+                This example uses an excerpt from the book Alice's Adventures in
+                Wonderland. Words that appear often will appear larger.
+            </p>
+        </figure>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script>
+      const text = Android.getText()
+        lines = text.replace(/[():'?0-9]+/g, "").split(/[,\. ]+/g),
+        data = lines.reduce((arr, word) => {
+          let obj = Highcharts.find(arr, (obj) => obj.name === word);
+          if (obj) {
+            obj.weight += 1;
+          } else {
+            obj = {
+              name: word,
+              weight: 1,
+            };
+            arr.push(obj);
+          }
+          return arr;
+        }, []);
+
+      Highcharts.chart("container", {
+        accessibility: {
+          screenReaderSection: {
+            beforeChartFormat:
+              "<h5>{chartTitle}</h5>" +
+              "<div>{chartSubtitle}</div>" +
+              "<div>{chartLongdesc}</div>" +
+              "<div>{viewTableButton}</div>",
+          },
+        },
+        series: [
+          {
+            type: "wordcloud",
+            data,
+            name: "Occurrences",
+          },
+        ],
+        title: {
+          text: "Wordcloud of Alice's Adventures in Wonderland",
+          align: "left",
+        },
+        subtitle: {
+          text: "An excerpt from chapter 1: Down the Rabbit-Hole",
+          align: "left",
+        },
+        tooltip: {
+          headerFormat:
+            '<span style="font-size: 16px"><b>{point.key}</b></span><br>',
+        },
+      });
+    </script>
+    </body>
+</html>
