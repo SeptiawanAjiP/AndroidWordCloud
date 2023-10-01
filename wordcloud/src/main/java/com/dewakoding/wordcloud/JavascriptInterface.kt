@@ -13,7 +13,6 @@ website : dewakoding.com
 
  **/
 class JavascriptInterface(
-    context: Context,
     text: String?
 ) {
     companion object {

@@ -35,7 +35,7 @@ class AndroidWordCloud @JvmOverloads constructor(
     }
 
     fun setWordCloud(text: String) {
-        jsi = JavascriptInterface(getContext(), text)
+        jsi = JavascriptInterface(text)
         render(jsi)
     }
 
