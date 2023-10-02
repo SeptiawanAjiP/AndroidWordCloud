@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidWordCloud</string>
+    <string name="example">Hello from Android Developer. I am an Android Developer</string>
 </resources>

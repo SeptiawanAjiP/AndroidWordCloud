@@ -20,7 +20,6 @@ class JavascriptInterface(
     }
     private val mText = text
 
-
     @JavascriptInterface
     fun getText(): String? {
         return mText

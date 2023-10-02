@@ -51,7 +51,6 @@ class AndroidWordCloud @JvmOverloads constructor(
         val baseUrl = "file:///android_res/raw/"
         val dataUri = Uri.parse(baseUrl + rawResourceId)
 
-
         webView.loadDataWithBaseURL(baseUrl, htmlData, "text/html", "UTF-8", null)
 
         addView(webView)
