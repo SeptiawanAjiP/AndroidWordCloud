@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">AndroidWordCloud</string>
-    <string name="example">Hello from Android Developer. I am an Android Developer</string>
+    <string name="example">With the official release of Android 14 only weeks away, today were bringing you Beta 5, the last scheduled update in our Android 14 beta program. It is the last chance to make sure your apps are ready and provide feedback before non-beta users start getting Android 14. To enable you to test your applications on devices spanning multiple form factors, Beta 5 is available for Pixel Tablet and Pixel Fold, in addition to the rest of the supported Pixel family and the Android emulator.</string>
 </resources>
